@@ -106,6 +106,8 @@ with col1:
     uploaded_file = st.file_uploader("Upload your time series data", type=["csv", "xlsx"])
     if uploaded_file:
         df = pd.read_csv(uploaded_file) if uploaded_file.name.endswith("csv") else pd.read_excel(uploaded_file)
+        if 'A&E Admit Date' in df.columns:
+            df['A&E Admit Date'] = pd.to_datetime(df['A&E Admit Date']).dt.strftime('%Y-%m-%d')
         st.dataframe(df.head())
 
 with col2:
