@@ -8,3 +8,5 @@ statsmodels
 prophet
 xgboost
 nixtla
+openpyxl
+
