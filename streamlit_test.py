@@ -77,7 +77,7 @@ def run_forecast_model(model_name, train_data, test_data, forecast_days, model_p
 
     if forecast is not None and y_true is not None:
         forecast = pd.Series(forecast).reset_index(drop=True)
-        rmse = mean_squared_error(y_true, forecast, squared=False)
+        rmse = np.sqrt(mean_squared_error(y_true, forecast))
         mae = mean_absolute_error(y_true, forecast)
         mape = mean_absolute_percentage_error(y_true, forecast) * 100
 
